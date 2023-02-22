@@ -6,7 +6,7 @@ import Checkout from "../Pages/Checkout"
 import Login from "../Pages/Login"
 import SignUp from "../Pages/SignUp"
 import Payment from "../Pages/Payment"
-import ProductPage from "../Pages/ProductPage"
+import Products from "../Pages/Products"
 import SingleProduct from "../Pages/SingleProduct"
 
 
@@ -20,9 +20,8 @@ const MainRoute = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/payment" element={<Payment/>} />
-          <Route path="/product" element={<ProductPage/>} />
+          <Route path="/product" element={<Products/>} />
           <Route path="/product/:id" element={<SingleProduct/>} />
-
 
         </Routes>
     </div>
