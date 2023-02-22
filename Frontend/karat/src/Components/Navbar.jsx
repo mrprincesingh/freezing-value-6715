@@ -137,7 +137,7 @@ const Navbar = () => {
             <li>
               <Link to="/signup">
                 <PersonIcon />
-                 
+                   
               </Link>
             </li>
             <li>
