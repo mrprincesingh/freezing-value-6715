@@ -8,7 +8,7 @@ import {
 } from "./actionTypes";
 
 const initialState = {
-  token: "token",
+  token:"" ,
   isLoading: false,
   isError: false,
 };
