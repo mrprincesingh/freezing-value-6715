@@ -20,8 +20,10 @@ const Payment = () => {
   const [firstName, setFirsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
   const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+  const [street,setSTreet] = useState('')
+ 
   return (
     <>
       <HStack>
