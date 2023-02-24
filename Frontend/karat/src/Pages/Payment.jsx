@@ -6,8 +6,12 @@ import {
   Stack,
   Button,
   Heading,
+  FormLabel,
+  Select,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { handleUserPayment } from "../redux/Auth/action";
 
 const Payment = () => {
   const [firstName, setFirsName] = useState("");
@@ -16,7 +20,24 @@ const Payment = () => {
   const [state, setState] = useState("");
   const [phone, setPhone] = useState("");
   const [street,setStreet] = useState('')
- 
+  const [pincode, setPincode] = useState("");
+  const [country, setCountry] = useState("India");
+  const dispatch = useDispatch();
+  const handlePayment = () => {
+    let userData = {
+      firstName,
+      lastName,
+      city,
+      state,
+      phone,
+      street,
+      pincode,
+      country,
+    };
+    dispatch(handleUserPayment(userData));
+    //  console.log(userData)
+    console.log("working");
+  };
   return (
     <>
       <HStack>
@@ -133,7 +154,96 @@ const Payment = () => {
               placeholder="Country"
             />
           </FormControl>
-          <Button
+             
+          <FormControl id="street" isRequired>     {/* <FormLabel>Phone number</FormLabel> */}
+                  <Input
+                    value={street}
+                    type="text"
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="Street & House no"
+                    onChange={(e) => setStreet(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl id="city" isRequired>
+                  {/* <FormLabel>City</FormLabel> */}
+                  <Input
+                    value={pincode}
+                    onChange={(e) => setPincode(+e.target.value)}
+                    type="text"
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="Pincode"
+                  />
+                </FormControl>
+                <FormControl id="state" isRequired>
+                  {/* <FormLabel>State</FormLabel> */}
+                  <Input
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    type="text"
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="Country"
+                  />
+                </FormControl>
+                
+                <Stack spacing={10} pt={2}></Stack>
+              </Stack>
+            </Box>
+          </Stack>
+        </Stack>
+        <Stack gap={"15px"}>
+          <Select placeholder="Select payment method">
+            <option value="option1">Cash on Delivery</option>
+            <option value="option2">UPI</option>
+            <option value="option3">CARD</option>
+          </Select>
+          <Stack spacing={4}>
+            <HStack>
+              <Box>
+                <FormLabel>CARD DETAILS</FormLabel>
+                <FormControl id="fullname" isRequired>
+                  {/* <FormLabel>First Name</FormLabel> */}
+                  <Input
+                    type="text"
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="Full Name"
+                  />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormLabel>CVV</FormLabel>
+                <FormControl id="cvv">
+                  {/* <FormLabel>Last Name</FormLabel> */}
+                  <Input
+                    type="number"
+                    maxLength={"3"}
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="CVV"
+                  />
+                </FormControl>
+              </Box>
+            </HStack>
+            <FormControl id="cardnumber" isRequired>
+              {/* <FormLabel>Phone number</FormLabel> */}
+              <Input
+                type="number"
+                maxLength={"10"}
+                borderRadius={"none"}
+                border={"1px solid gray"}
+                focusBorderColor="gray.400"
+                placeholder="Card number"
+              />
+            </FormControl>
+            <Button
                   loadingText="Submitting"
                   size="lg"
                   bgImage={"linear-gradient(to right, #d758e6, #3963f7 )"}
@@ -141,37 +251,13 @@ const Payment = () => {
                   _hover={{
                     color: "#262b2b",
                   }}
-                 
+                  onClick={() => handlePayment()}
                 >
                   Continue
                 </Button>
-                <Stack spacing={10} pt={2}></Stack>
-              </Stack>
-            </Box>
+            <Stack spacing={10} pt={2}></Stack>
           </Stack>
         </Stack>
-        <Stack gap={"15px"}>
-         
-        </Stack>
-        {/* <Stack>
-          <Heading fontSize={"xl"} textAlign={"center"} color="blk">
-            Order summery
-          </Heading>
-          <Stack>
-            <HStack gap={"150px"} >
-              <Text>SUB-TOTAL</Text>
-              <Text>32,394 Rs</Text>
-            </HStack>
-            <HStack gap={"150px"}>
-            <Text>CART-DISCOUNT</Text>
-              <Text>-1,972 Rs</Text>
-            </HStack>
-            <HStack gap={"150px"}>
-            <Text>SHIPPING CHARGES</Text>
-              <Text>FREE</Text>
-            </HStack>
-          </Stack>
-        </Stack> */}
       </HStack>
     </>
   );
