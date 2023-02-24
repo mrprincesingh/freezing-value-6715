@@ -3,11 +3,14 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  PAYMENT_FAILURE,
+  PAYMENT_REQUEST,
+  PAYMENT_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
 } from "./actionTypes";
-//for register
+//FOR REGISTER
 export const userRegisterRequest = () => {
   return { type: REGISTER_REQUEST };
 };
@@ -17,7 +20,7 @@ export const userRegisterSuccess = (payload) => {
 export const userRegisterFailure = () => {
   return { type: REGISTER_FAILURE };
 };
-//for login
+//FOR LOGIN
 export const userLoginRequest = () => {
   return { type: LOGIN_REQUEST };
 };
@@ -27,7 +30,17 @@ export const userLoginSuccess = (payload) => {
 export const userLoginFailure = () => {
   return { type: LOGIN_FAILURE };
 };
-
+//FOR DILIVERY ADDRESS
+export const userPaymentRequest = () => {
+  return { type: PAYMENT_REQUEST };
+};
+export const userPaymentSuccess = (payload) => {
+  return { type: PAYMENT_SUCCESS, payload };
+};
+export const userPaymentFailure = () => {
+  return { type: PAYMENT_FAILURE };
+};
+//HANDLING USER REGISTRATION
 export const handleUserRegister = (userData) => async (dispatch) => {
   console.log(userData);
   dispatch(userRegisterRequest());
@@ -42,7 +55,7 @@ export const handleUserRegister = (userData) => async (dispatch) => {
     dispatch(userRegisterFailure());
   }
 };
-
+//HANDLING USER LOGIN
 export const handleUserLogin = (userData) => async (dispatch) => {
   console.log(userData);
   dispatch(userLoginRequest());
@@ -55,5 +68,20 @@ export const handleUserLogin = (userData) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(userLoginFailure());
+  }
+};
+//HANDLING USER DILIVERY ADDRESS
+export const handleUserPayment = (userDiliveryAddress) => async (dispatch) => {
+  console.log(userDiliveryAddress);
+  dispatch(userPaymentRequest());
+  try {
+    axios
+      .post("https://real-puce-slug-boot.cyclic.app/order/add", userDiliveryAddress)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    dispatch(userPaymentSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(userPaymentFailure());
   }
 };
