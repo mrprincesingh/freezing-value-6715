@@ -35,6 +35,7 @@ import {
   faStore,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import {AiFillHome} from "react-icons/ai"
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
@@ -69,7 +70,7 @@ const Navbar = () => {
             <li style={{ fontSize: "14px" }}>
               <NavLink to="/">
                 <a href="/" className="active">
-                  <FontAwesomeIcon icon={faHomeAlt} />
+                  < AiFillHome />
                   &nbsp; FREE TRY AT HOME
                 </a>
               </NavLink>
