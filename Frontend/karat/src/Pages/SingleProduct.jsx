@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
 const SingleProduct = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
   const products = useSelector((store) => store.productReducer.products);
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    let productData = products.find((el) => el.id === +id);
+    let productData = products.find((el) => el._id === _id);
     productData && setProduct(productData);
-  }, [products, id]);
+  }, [products, _id]);
 
 
   const handleAddToCart = () => {
-    const selectedProduct = {Weight:product.Weight, id: product.id, Img: product.Img, Price: product.Price, Title: product.Title, DiscountPrice: product.DiscountPrice };
-    const params = new URLSearchParams(selectedProduct).toString();
-    window.location.href = `/cart?${params}`;
+
+    let cartItems = [];
+    if (localStorage.getItem('cartItems')) {
+      cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    }
+    const selectedProduct = {Weight:product.Weight, _id: product._id, Img: product.Img, Price: product.Price, Title: product.Title, DiscountPrice: product.DiscountPrice };
+    
+    cartItems.push(selectedProduct);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    // const params = new URLSearchParams(selectedProduct).toString();
+
+    // window.location.href = `/cart?${params}`;
   };
 
   return (
@@ -64,7 +74,9 @@ const SingleProduct = () => {
 <h1 style={{fontSize:'25px',color:'gray',textDecoration:"line-through"}}>₹{product.Price}</h1>
 </div>
 <div style={{display:'flex',marginTop:'30px',justifyContent:'space-between'}}>
+<Link to={"/cart"}>
 <button onClick={handleAddToCart} style={{width:'235px',fontSize:'18px',color:'white',backgroundColor:'#8E62F9', padding:'17px', borderRadius:'20px'}}>ADD TO CART</button>
+</Link>
 <button style={{width:'235px',fontSize:'18px',backgroundColor:'#DCD2FE', padding:'17px', borderRadius:'20px'}}>FIND IN STORE</button>
 </div>
 <div style={{display:'flex',marginTop:'30px',justifyContent:'space-between'}}>
@@ -89,3 +101,5 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+
+

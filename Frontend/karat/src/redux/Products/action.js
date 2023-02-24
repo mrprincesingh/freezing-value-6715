@@ -28,7 +28,7 @@ export const getProducts =
     dispatch(getProductsRequestAction());
 
     axios
-      .get("http://localhost:8080/Products", param)
+      .get("https://real-puce-slug-boot.cyclic.app/products", param)
       .then((res) => {
         dispatch(getProductsSuccessAction(res.data));
       })
@@ -38,7 +38,7 @@ export const getProducts =
   };
 
 export const deleteBook = (id, ProductData) => (dispatch) => {
-  return axios.delete(`http://localhost:8080/Products/${id}`, ProductData).then(() => {
+  return axios.delete(`https://real-puce-slug-boot.cyclic.app/products/${id}`, ProductData).then(() => {
     dispatch(deleteProductSuccess());
   });
 };
