@@ -20,19 +20,18 @@ import { useDispatch } from "react-redux";
 import { handleUserRegister } from "../redux/Auth/action";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstName, setFirsName] = useState("");
+  const [name, setFirsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  //const [role, setRole] = useState("");
+  const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
 const dispatch = useDispatch()
   const handleRegisterSubmit = async () => {
     let userObj = {
-      firstName,
-      lastName,
+      name,
+      last :lastName ,
       email,
-      phone,
+      mobile,
       password,
     };
     dispatch(handleUserRegister(userObj))
@@ -48,7 +47,7 @@ const dispatch = useDispatch()
       >
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textAlign={"center"} color="#eac926">
+            <Heading fontSize={"4xl"} textAlign={"center"} color="#aa5af1">
               Sign up with 24-KARAT
             </Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
@@ -66,7 +65,7 @@ const dispatch = useDispatch()
                       borderRadius={"none"}
                       border={"1px solid gray"}
                       focusBorderColor="gray.400"
-                      value={firstName}
+                      value={name}
                       onChange={(e) => setFirsName(e.target.value)}
                     />
                   </FormControl>
@@ -88,8 +87,8 @@ const dispatch = useDispatch()
               <FormControl id="phone" isRequired>
                 <FormLabel>phone number</FormLabel>
                 <Input
-                  value={phone}
-                  onChange={(e) => setPhone(Number(e.target.value))}
+                  value={mobile}
+                  onChange={(e) => setMobile(Number(e.target.value))}
                   type="number"
                   maxLength={"10"}
                   borderRadius={"none"}

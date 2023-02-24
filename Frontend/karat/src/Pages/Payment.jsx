@@ -19,7 +19,7 @@ const Payment = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [phone, setPhone] = useState("");
-  const [street, setStreet] = useState("");
+  const [street,setStreet] = useState('')
   const [pincode, setPincode] = useState("");
   const [country, setCountry] = useState("India");
   const dispatch = useDispatch();
@@ -118,7 +118,44 @@ const Payment = () => {
                   />
                 </FormControl>
                 <FormControl id="phone" isRequired>
-                  {/* <FormLabel>Phone number</FormLabel> */}
+            {/* <FormLabel>Phone number</FormLabel> */}
+            <Input
+            value={street}
+              type="number"
+              maxLength={"10"}
+              borderRadius={"none"}
+              border={"1px solid gray"}
+              focusBorderColor="gray.400"
+              placeholder="Street & House no"
+              onChange={(e)=>setStreet(e.target.value)}
+            />
+          </FormControl>
+          <FormControl id="city" isRequired>
+            {/* <FormLabel>City</FormLabel> */}
+            <Input
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              type="text"
+              borderRadius={"none"}
+              border={"1px solid gray"}
+              focusBorderColor="gray.400"
+              placeholder="Pincode"
+            />
+          </FormControl>
+          <FormControl id="state" isRequired>
+            {/* <FormLabel>State</FormLabel> */}
+            <Input
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              type="text"
+              borderRadius={"none"}
+              border={"1px solid gray"}
+              focusBorderColor="gray.400"
+              placeholder="Country"
+            />
+          </FormControl>
+             
+          <FormControl id="street" isRequired>     {/* <FormLabel>Phone number</FormLabel> */}
                   <Input
                     value={street}
                     type="text"
