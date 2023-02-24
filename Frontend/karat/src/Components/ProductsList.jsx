@@ -17,7 +17,7 @@ const dispatch = useDispatch();
     let paramObj = {
       params: {
         category: searchParams.getAll("category"),
-        _sort: order && "release_year",
+        _sort: order && "Price",
         _order: order, //acs or desc
       },
     };

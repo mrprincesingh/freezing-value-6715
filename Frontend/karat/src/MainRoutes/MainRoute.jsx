@@ -22,6 +22,8 @@ const MainRoute = () => {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/product" element={<Products/>} />
           <Route path="/product/:id" element={<SingleProduct/>} />
+          <Route path="/cart" element={<Cart/>} />
+
 
         </Routes>
     </div>

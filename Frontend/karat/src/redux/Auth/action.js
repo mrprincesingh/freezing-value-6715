@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
@@ -27,6 +28,32 @@ export const userLoginFailure = () => {
   return { type: LOGIN_FAILURE };
 };
 
-export const handleRegisterSubmit = (payload) => (dispatch) =>{
-dispatch(console.log(payload))
-}
+export const handleUserRegister = (userData) => async (dispatch) => {
+  console.log(userData);
+  dispatch(userRegisterRequest());
+  try {
+    axios
+      .post("https://real-puce-slug-boot.cyclic.app/users/register", userData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    dispatch(userRegisterSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(userRegisterFailure());
+  }
+};
+
+export const handleUserLogin = (userData) => async (dispatch) => {
+  console.log(userData);
+  dispatch(userLoginRequest());
+  try {
+    axios
+      .post("https://real-puce-slug-boot.cyclic.app/users/login", userData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+    dispatch(userLoginSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(userLoginFailure());
+  }
+};

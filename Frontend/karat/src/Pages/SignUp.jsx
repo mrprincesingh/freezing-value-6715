@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useDispatch } from "react-redux";
+import { handleUserRegister } from "../redux/Auth/action";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [firstName, setFirsName] = useState("");
@@ -24,7 +26,7 @@ const SignUp = () => {
   const [phone, setPhone] = useState("");
   //const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
-
+const dispatch = useDispatch()
   const handleRegisterSubmit = async () => {
     let userObj = {
       firstName,
@@ -33,21 +35,8 @@ const SignUp = () => {
       phone,
       password,
     };
-    // try {
-    //   let data = await fetch(
-    //     `https://unusual-toad-shift.cyclic.app/users/register`,
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify(userObj),
-    //       headers: { "Content-Type": "application/json" },
-    //     }
-    //   );
-    //   data = await data.json();
-      
-    //   //console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    dispatch(handleUserRegister(userObj))
+   
   };
   return (
     <>
