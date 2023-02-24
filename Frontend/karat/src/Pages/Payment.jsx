@@ -1,18 +1,11 @@
 import {
-  Flex,
   Box,
   FormControl,
-  FormLabel,
   Input,
-  InputGroup,
   HStack,
-  InputRightElement,
   Stack,
   Button,
   Heading,
-  Text,
-  useColorModeValue,
-  Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -22,7 +15,7 @@ const Payment = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [phone, setPhone] = useState("");
-  const [street,setSTreet] = useState('')
+  const [street,setStreet] = useState('')
  
   return (
     <>
@@ -106,12 +99,14 @@ const Payment = () => {
                 <FormControl id="phone" isRequired>
             {/* <FormLabel>Phone number</FormLabel> */}
             <Input
+            value={street}
               type="number"
               maxLength={"10"}
               borderRadius={"none"}
               border={"1px solid gray"}
               focusBorderColor="gray.400"
               placeholder="Street & House no"
+              onChange={(e)=>setStreet(e.target.value)}
             />
           </FormControl>
           <FormControl id="city" isRequired>
