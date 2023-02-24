@@ -34,7 +34,7 @@ const Login = () => {
     };
     dispatch(handleUserLogin(userObj));
   };
-  console.log(token)
+  // console.log(token)
   return (
     <>
       <Flex
