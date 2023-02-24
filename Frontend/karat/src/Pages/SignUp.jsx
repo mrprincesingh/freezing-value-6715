@@ -16,38 +16,26 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useDispatch } from "react-redux";
+import { handleUserRegister } from "../redux/Auth/action";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstName, setFirsName] = useState("");
+  const [name, setFirsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  //const [role, setRole] = useState("");
+  const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
-
+const dispatch = useDispatch()
   const handleRegisterSubmit = async () => {
     let userObj = {
-      firstName,
-      lastName,
+      name,
+      last :lastName ,
       email,
-      phone,
+      mobile,
       password,
     };
-    // try {
-    //   let data = await fetch(
-    //     `https://unusual-toad-shift.cyclic.app/users/register`,
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify(userObj),
-    //       headers: { "Content-Type": "application/json" },
-    //     }
-    //   );
-    //   data = await data.json();
-      
-    //   //console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    dispatch(handleUserRegister(userObj))
+   
   };
   return (
     <>
@@ -59,7 +47,7 @@ const SignUp = () => {
       >
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textAlign={"center"} color="#eac926">
+            <Heading fontSize={"4xl"} textAlign={"center"} color="#aa5af1">
               Sign up with 24-KARAT
             </Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
@@ -77,7 +65,7 @@ const SignUp = () => {
                       borderRadius={"none"}
                       border={"1px solid gray"}
                       focusBorderColor="gray.400"
-                      value={firstName}
+                      value={name}
                       onChange={(e) => setFirsName(e.target.value)}
                     />
                   </FormControl>
@@ -99,8 +87,8 @@ const SignUp = () => {
               <FormControl id="phone" isRequired>
                 <FormLabel>phone number</FormLabel>
                 <Input
-                  value={phone}
-                  onChange={(e) => setPhone(Number(e.target.value))}
+                  value={mobile}
+                  onChange={(e) => setMobile(Number(e.target.value))}
                   type="number"
                   maxLength={"10"}
                   borderRadius={"none"}

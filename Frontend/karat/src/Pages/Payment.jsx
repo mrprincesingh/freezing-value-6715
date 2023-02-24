@@ -1,181 +1,300 @@
 import {
-  Flex,
   Box,
   FormControl,
-  FormLabel,
   Input,
-  InputGroup,
   HStack,
-  InputRightElement,
   Stack,
   Button,
   Heading,
-  Text,
-  useColorModeValue,
-  Link,
+  FormLabel,
+  Select,
+  Grid,
+  Flex,
+} from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { handleUserPayment } from "../redux/Auth/action";
 
 const Payment = () => {
   const [firstName, setFirsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
   const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+  const [street, setStreet] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [country, setCountry] = useState("India");
+  const dispatch = useDispatch();
+  const handlePayment = () => {
+    let userData = {
+      firstName,
+      lastName,
+      city,
+      state,
+      phone,
+      street,
+      pincode,
+      country,
+    };
+    dispatch(handleUserPayment(userData));
+    //  console.log(userData)
+    console.log("working");
+  };
   return (
     <>
-      <HStack>
-        <Stack>
+      <Flex
+        flexDirection={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "row",
+        }}
+        alignItems="center"
+        gap={"50px"}
+        margin="auto"
+        paddingTop={"50px"}
+        
+      >
+        <Stack
+          flexDirection={{
+            base: "column",
+            sm: "column",
+            md: "column",
+            lg: "row",
+          }}
+          width={"35%"}
+        >
           <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
             <Stack align={"center"}>
               <Heading fontSize={"2xl"} textAlign={"center"} color="blk">
                 Shipping Address
               </Heading>
             </Stack>
-            <Box rounded={"lg"} p={8} display="grid">
-              <Stack spacing={4}>
-                <HStack>
-                  <Box>
-                    <FormControl id="firstName" isRequired>
-                      {/* <FormLabel>First Name</FormLabel> */}
-                      <Input
-                        type="text"
-                        borderRadius={"none"}
-                        border={"1px solid gray"}
-                        focusBorderColor="gray.400"
-                        value={firstName}
-                        onChange={(e) => setFirsName(e.target.value)}
-                        placeholder="First name"
-                      />
-                    </FormControl>
-                  </Box>
-                  <Box>
-                    <FormControl id="lastName">
-                      {/* <FormLabel>Last Name</FormLabel> */}
-                      <Input
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        type="text"
-                        borderRadius={"none"}
-                        border={"1px solid gray"}
-                        focusBorderColor="gray.400"
-                        placeholder="Last name"
-                      />
-                    </FormControl>
-                  </Box>
-                </HStack>
-                <FormControl id="phone" isRequired>
-                  {/* <FormLabel>Phone number</FormLabel> */}
+
+            <Stack
+              spacing={4}
+              width={{ base: "300px", md: "400px", lg: "450px" }}
+            >
+              <FormControl id="firstName"> 
+              {/* <FormLabel>First Name</FormLabel> */}
+              <Input
+                width={"100%"}
+                type="text"
+                borderRadius={"none"}
+                border={"1px solid gray"}
+                focusBorderColor="gray.400"
+                value={firstName}
+                onChange={(e) => setFirsName(e.target.value)}
+                placeholder="First name"
+              />
+              </FormControl>
+
+              <FormControl id="lastName">
+                {/* <FormLabel>Last Name</FormLabel> */}
+                <Input
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Last name"
+                />
+              </FormControl>
+
+              <FormControl id="phone" isRequired>
+                {/* <FormLabel>Phone number</FormLabel> */}
+                <Input
+                  value={phone}
+                  onChange={(e) => setPhone(Number(e.target.value))}
+                  type="number"
+                  maxLength={"10"}
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Phone number"
+                />
+              </FormControl>
+              <FormControl id="phone" isRequired>
+                {/* <FormLabel>Phone number</FormLabel> */}
+                <Input
+                  value={street}
+                  type="text"
+                  maxLength={"10"}
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Street & House no"
+                  onChange={(e) => setStreet(e.target.value)}
+                />
+              </FormControl>
+              <FormControl id="city" isRequired>
+                {/* <FormLabel>City</FormLabel> */}
+                <Input
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Enter city"
+                />
+              </FormControl>
+              <FormControl id="state" isRequired>
+                {/* <FormLabel>State</FormLabel> */}
+                <Input
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Enter State"
+                />
+              </FormControl>
+
+              <FormControl id="pincode" isRequired>
+                {/* <FormLabel>City</FormLabel> */}
+                <Input
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Pincode"
+                />
+              </FormControl>
+              <FormControl id="country" isRequired>
+                {/* <FormLabel>State</FormLabel> */}
+                <Input
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  placeholder="Country"
+                />
+              </FormControl>
+
+              <Stack spacing={10} pt={2}></Stack>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack gap={"15px"} m={"auto"}>
+          <Select placeholder="Select payment method">
+            <option value="option1">Cash on Delivery</option>
+            <option value="option2">UPI</option>
+            <option value="option3">CARD</option>
+          </Select>
+          <Stack spacing={4}>
+            <HStack>
+              <Box>
+                <FormLabel>CARD DETAILS</FormLabel>
+                <FormControl id="fullname" isRequired>
+                  {/* <FormLabel>First Name</FormLabel> */}
                   <Input
-                    value={phone}
-                    onChange={(e) => setPhone(Number(e.target.value))}
+                    type="text"
+                    borderRadius={"none"}
+                    border={"1px solid gray"}
+                    focusBorderColor="gray.400"
+                    placeholder="Full Name"
+                  />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormLabel>CVV</FormLabel>
+                <FormControl id="cvv">
+                  {/* <FormLabel>Last Name</FormLabel> */}
+                  <Input
                     type="number"
-                    maxLength={"10"}
+                    maxLength={"3"}
                     borderRadius={"none"}
                     border={"1px solid gray"}
                     focusBorderColor="gray.400"
-                    placeholder="Phone number"
+                    placeholder="CVV"
                   />
                 </FormControl>
-                <FormControl id="city" isRequired>
-                  {/* <FormLabel>City</FormLabel> */}
-                  <Input
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    type="text"
-                    borderRadius={"none"}
-                    border={"1px solid gray"}
-                    focusBorderColor="gray.400"
-                    placeholder="Enter city"
-                  />
-                </FormControl>
-                <FormControl id="state" isRequired>
-                  {/* <FormLabel>State</FormLabel> */}
-                  <Input
-                    value={state}
-                    onChange={(e) => setState(e.target.value)}
-                    type="text"
-                    borderRadius={"none"}
-                    border={"1px solid gray"}
-                    focusBorderColor="gray.400"
-                    placeholder="Enter State"
-                  />
-                </FormControl>
-                <FormControl id="phone" isRequired>
-            {/* <FormLabel>Phone number</FormLabel> */}
-            <Input
-              type="number"
-              maxLength={"10"}
-              borderRadius={"none"}
-              border={"1px solid gray"}
-              focusBorderColor="gray.400"
-              placeholder="Street & House no"
-            />
-          </FormControl>
-          <FormControl id="city" isRequired>
-            {/* <FormLabel>City</FormLabel> */}
-            <Input
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              type="text"
-              borderRadius={"none"}
-              border={"1px solid gray"}
-              focusBorderColor="gray.400"
-              placeholder="Pincode"
-            />
-          </FormControl>
-          <FormControl id="state" isRequired>
-            {/* <FormLabel>State</FormLabel> */}
-            <Input
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              type="text"
-              borderRadius={"none"}
-              border={"1px solid gray"}
-              focusBorderColor="gray.400"
-              placeholder="Country"
-            />
-          </FormControl>
-          <Button
-                  loadingText="Submitting"
-                  size="lg"
-                  bgImage={"linear-gradient(to right, #d758e6, #3963f7 )"}
-                  color={"white"}
-                  _hover={{
-                    color: "#262b2b",
-                  }}
-                 
-                >
-                  Continue
-                </Button>
-                <Stack spacing={10} pt={2}></Stack>
-              </Stack>
-            </Box>
+              </Box>
+            </HStack>
+            <FormControl id="cardnumber" isRequired>
+              {/* <FormLabel>Phone number</FormLabel> */}
+              <Input
+                type="number"
+                maxLength={"10"}
+                borderRadius={"none"}
+                border={"1px solid gray"}
+                focusBorderColor="gray.400"
+                placeholder="Card number"
+              />
+            </FormControl>
+            <Button
+              loadingText="Submitting"
+              size="lg"
+              bgImage={"linear-gradient(to right, #d758e6, #3963f7 )"}
+              color={"white"}
+              _hover={{
+                color: "#262b2b",
+              }}
+              onClick={() => handlePayment()}
+            >
+              Continue
+            </Button>
+            <Stack spacing={10} pt={2}></Stack>
           </Stack>
         </Stack>
-        <Stack gap={"15px"}>
-         
-        </Stack>
-        {/* <Stack>
-          <Heading fontSize={"xl"} textAlign={"center"} color="blk">
-            Order summery
-          </Heading>
-          <Stack>
-            <HStack gap={"150px"} >
-              <Text>SUB-TOTAL</Text>
-              <Text>32,394 Rs</Text>
-            </HStack>
-            <HStack gap={"150px"}>
-            <Text>CART-DISCOUNT</Text>
-              <Text>-1,972 Rs</Text>
-            </HStack>
-            <HStack gap={"150px"}>
-            <Text>SHIPPING CHARGES</Text>
-              <Text>FREE</Text>
-            </HStack>
-          </Stack>
-        </Stack> */}
-      </HStack>
+        <Grid m={"auto"}>
+          <TableContainer>
+            <Table
+              variant="simple"
+              colorScheme="teal"
+              boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            >
+              <TableCaption>
+                You are our lucky customer ! stay connected
+              </TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>SUB TOTAL</Th>
+
+                  <Th isNumeric> ₹ 1,47,754</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td>CART DISCOUNT</Td>
+
+                  <Td isNumeric>₹ 11,995</Td>
+                </Tr>
+                <Tr>
+                  <Td>SHIPPING CHARGES</Td>
+
+                  <Td isNumeric>FREE</Td>
+                </Tr>
+              </Tbody>
+              <Tfoot>
+                <Tr>
+                  <Th>TOTAL COAST</Th>
+
+                  <Th isNumeric> ₹1,35,000 </Th>
+                </Tr>
+              </Tfoot>
+            </Table>
+          </TableContainer>
+        </Grid>
+      </Flex>
     </>
   );
 };
