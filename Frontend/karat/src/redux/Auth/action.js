@@ -63,8 +63,9 @@ export const handleUserLogin = (userData) => async (dispatch) => {
     axios
       .post("https://real-puce-slug-boot.cyclic.app/users/login", userData)
       .then((res) => {
-      if(res.data.token){
+      if(res.data.token){      
         localStorage.setItem("token",res.data.token)
+        userLoginSuccess(res.data.token)
       }
       console.log(res.data.token)})
       .catch((err) => console.log(err));
