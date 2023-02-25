@@ -16,6 +16,7 @@ import SliderShow1 from '../Components/sliderShow1'
 import './Home.css'
 
 
+
 const Home = () => {
   return (
     <>
@@ -90,18 +91,18 @@ const Home = () => {
         </div>
       </div>
       <CarouselCard />
-      {/* <div className='deliup'>
+      <div className='deliup'>
         <div className='delivery'>
           <div className='picA'><img src={picA} alt='image1' /></div>
           <div className='picB'><img src={picB} alt='image2' /></div>
           <div className='picC' ><img src={picC} alt='image3' /></div>
           <div className='picD'><img src={picD} alt='image4' /></div>
         </div>
-      </div> */}
+      </div>
       <SliderCard />
       <button className='knowmore border-gradient border-gradient-purple'>Read More</button>
-      {/* <h1 style={{ textAlign: 'left', width: '94%', margin: ' 30px auto' }}>Shop Our Instagram</h1> */}
-      {/* <div className="insta-container">
+      <h1 style={{ textAlign: 'left', width: '94%', margin: ' 30px auto',fontSize: "24px" }}>Shop Our Instagram</h1>
+      <div className="insta-container">
 
 
         <div className="insta1" ><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/10-OCT/Others/insta/image1.jpg' alt='img1'></img></div>
@@ -111,10 +112,10 @@ const Home = () => {
         <div className="insta5"><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/10-OCT/Others/insta/image3.jpg' alt='img5'></img></div>
         <div className="insta6" ><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/10-OCT/Others/insta/Image6.jpg' alt='img6'></img></div>
         <div className="insta7"><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/10-OCT/Others/insta/image7.jpg' alt='img7'></img></div>
-      </div> */}
+      </div>
 
 
-      {/* <div className='indsider'>
+       <div className='indsider'>
         <div className="indsider1">
           <img src={plane} alt='plane1' width={200} style={{ marginLeft: '150px' }} />
           <h1>Sign up to be a CaratLane Insider</h1>
@@ -134,8 +135,8 @@ const Home = () => {
 
 
         </div>
-      </div> */}
-      {/* <div className='about'>
+      </div> 
+     <div className='about'>
         <div>
           <h3>Online Jewellery Store</h3>
           <hr style={{ color: 'blue' }}></hr>
@@ -166,11 +167,11 @@ const Home = () => {
         </div>
 
 
-      </div> */}
+      </div> 
 
 
     </div>
-   
+   <Footer />
     </>
   )
 }

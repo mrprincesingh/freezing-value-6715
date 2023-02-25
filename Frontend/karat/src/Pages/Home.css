@@ -626,7 +626,9 @@
         width: 95%;
         margin: auto;
     }
-
+    .indsider1 input{
+        width: 50px;
+    }
 
     .insta-container {
         width: 95%;
