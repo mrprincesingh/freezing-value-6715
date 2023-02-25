@@ -20,7 +20,7 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleUserPayment } from "../redux/Auth/action";
 
@@ -48,6 +48,22 @@ const Payment = () => {
     //console.log(userData)
     //console.log("working");
   };
+
+
+  const [cartItems, setCartItems] = useState([]);
+
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(items);
+  }, []);
+
+  const total = cartItems.reduce((acc, item) => acc + item.DiscountPrice, 0)
+  const totalmain = cartItems.reduce((acc, item) => acc + item.Price, 0)
+
+  const Tsave= totalmain-total
+
+
   return (
     <>
       <Flex
@@ -265,14 +281,14 @@ const Payment = () => {
                 <Tr>
                   <Th>SUB TOTAL</Th>
 
-                  <Th isNumeric> ₹ 1,47,754</Th>
+                  <Th isNumeric> ₹ {totalmain}</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 <Tr>
                   <Td>CART DISCOUNT</Td>
 
-                  <Td isNumeric>₹ 11,995</Td>
+                  <Td isNumeric>₹ {Tsave}</Td>
                 </Tr>
                 <Tr>
                   <Td>SHIPPING CHARGES</Td>
@@ -284,7 +300,7 @@ const Payment = () => {
                 <Tr>
                   <Th>TOTAL COAST</Th>
 
-                  <Th isNumeric> ₹1,35,000 </Th>
+                  <Th isNumeric> ₹{total} </Th>
                 </Tr>
               </Tfoot>
             </Table>

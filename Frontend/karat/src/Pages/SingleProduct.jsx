@@ -22,15 +22,11 @@ const SingleProduct = () => {
     const selectedProduct = {Weight:product.Weight, _id: product._id, Img: product.Img, Price: product.Price, Title: product.Title, DiscountPrice: product.DiscountPrice };
     
     cartItems.push(selectedProduct);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    
-    // const params = new URLSearchParams(selectedProduct).toString();
-
-    // window.location.href = `/cart?${params}`;
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))   
   };
 
   return (
-    <div>
+    <div style={{paddingTop:'100px'}}>
       {product && product.Img && (
         <div style={{display:'flex'}}>
           <div style={{ width:'600px'}}>
@@ -90,13 +86,15 @@ const SingleProduct = () => {
   <h1>Try it on at home</h1>
   <p style={{fontSize:'15px'}}>Book a free appointment to try this jewellery at your home.</p>
   <br />
-  <button style={{width:'200px',fontSize:'16px',backgroundColor:'#FEE7DA', padding:'12px', borderRadius:'20px'}}>Book Home Appointment</button>
-  </div>
+  <button style={{width:'200px',fontSize:'16px',backgroundColor:'#FEE7DA', padding:'12px', borderRadius:'20px'}}>Book Home Appointment</button>  </div>
 </div>
 </div>
     </div>
+    
       )}
+      
     </div>
+    
   );
 };
 

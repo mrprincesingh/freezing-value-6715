@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../Styles/Cart.module.css";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -24,7 +25,7 @@ const CartPage = () => {
 
   return (
     
-    <div style={{backgroundColor:'#F9F9FA',textAlign:'left'}}>
+    <div style={{backgroundColor:'#F9F9FA',textAlign:'left',paddingTop:"140px"}}>
       <p style={{marginLeft:'35px'}}>Total({cartItems.length} Items):₹ {total}</p>
       {cartItems.length > 0 ? (
         <div style={{
@@ -58,7 +59,7 @@ const CartPage = () => {
                   borderRadius:'10px', 
                   padding:'5px'}}>Move To Wishlist</button>
                 </div>
-             
+            
               </div>
 
             </div>
@@ -75,13 +76,22 @@ const CartPage = () => {
   <p>Delivery Charge (Standard): FREE</p>
   <p className={styles["total-cost"]}>TOTAL COST: ₹{total}</p>
 </div>
-<button style={{marginTop:'13px',color:'white',border:"1px solid purple",backgroundColor:"#C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Checkout Securely</button>
-          </div>
+<Link to={'/payment'}>
+
+<button style={{marginTop:'13px',color:'white',border:"1px solid purple",backgroundColor:"#C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Checkout Securely</button>        
+</Link>
+  </div>
+       
         </div>
+        
       ) : (
-        <p>Your cart is empty</p>
+        <p style={{fontSize:'100px'}}>Your cart is empty :(</p>
       )}
+      <Link to={'/product'}>
+<button style={{marginTop:'13px',border:"1px solid #C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Add More Product</button>       
+</Link>
     </div>
+    
   );
 };
 
