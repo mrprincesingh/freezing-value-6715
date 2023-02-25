@@ -1,0 +1,193 @@
+.container {
+    display: flex;
+  }
+  
+  .imgContainer {
+    width: 600px;
+  }
+  
+  .imgContainer img {
+    width: 100%;
+  }
+  
+  .detailsContainer {
+    width: 65%;
+    text-align: left;
+    padding: 50px;
+    background-color: #F5F5F5;
+  }
+  
+  .title {
+    font-size: 28px;
+    color: #4F3267;
+    font-weight: bold;
+  }
+  
+  .selectContainer {
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+  }
+  
+  .sizeLabel {
+    font-weight: bold;
+  }
+  
+  .sizeSelect {
+    width: 240px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .deliveryLabel {
+    font-weight: bold;
+  }
+  
+  .deliveryInput {
+    width: 240px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .customizationContainer {
+    margin-top: 30px;
+  }
+  
+  .customizationLabel {
+    font-weight: bold;
+  }
+  
+  .customizationSelect {
+    width: 240px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .priceContainer {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+  
+  .discountPrice {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  .originalPrice {
+    font-size: 25px;
+    color: gray;
+    text-decoration: line-through;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+  
+  .cartButton {
+    width: 235px;
+    font-size: 18px;
+    color: white;
+    background-color: #8E62F9;
+    padding: 17px;
+    border-radius: 20px;
+  }
+  
+  .storeButton {
+    width: 235px;
+    font-size: 18px;
+    background-color: #DCD2FE;
+    padding: 17px;
+    border-radius: 20px;
+  }
+  
+  .extraContainer {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+  
+  .extraBox {
+    width: 235px;
+    font-size: 18px;
+    background-color: white;
+    padding: 17px;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
+  .extraBox h1 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .extraBox p {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .extraBox button {
+    width: 200px;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+  
+  .extraBox.scheduleButton {
+    background-color: #DFF2D9;
+  }
+  
+  .extraBox.appointmentButton {
+    background-color: #FEE7DA;
+  }
+  .extraBox.contact {
+    background-color: #E4F4FD;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .extraBox.contact h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .extraBox.contact form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .extraBox.contact input,
+  .extraBox.contact textarea {
+    width: 48%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #F2F2F2;
+    color: #1F1F1F;
+  }
+  
+  .extraBox.contact textarea {
+    height: 6rem;
+  }
+  
+  .extraBox.contact input[type="submit"] {
+    width: 100%;
+    background-color: #FF8D6F;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+        

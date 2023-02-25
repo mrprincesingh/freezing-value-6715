@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "../Styles/Cart.module.css";
 import { Link } from "react-router-dom";
 
@@ -63,29 +64,34 @@ const CartPage = () => {
               </div>
 
             </div>
+            
           ))}
-         
+
+          <Link to={"/product"}>
+           <button style={{marginTop:'13px',border:"1px solid purple",
+             width:"200px",
+             borderRadius:'10px', 
+             padding:'5px'}}>Add More Products</button>
+         </Link>
           </div>
           <div style={{textAlign:"left"}}>
-            <p>Order Summary</p>
+            <p style={{fontWeight:'bolder'}}>Order Summary</p>
           <div className={styles["cart-summary"]}>
-  <p>Subtotal: ₹{total}</p>
-  <p>You Saved: ₹{Tsave}</p>
-  <p>Coupon Discount</p>
-  <p>Apply Coupon</p>
-  <p>Delivery Charge (Standard): FREE</p>
-  <p className={styles["total-cost"]}>TOTAL COST: ₹{total}</p>
+  <p>Subtotal:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ₹{total}</p>
+  <p>You Saved:&emsp;&emsp;&emsp;&emsp;&emsp; ₹{Tsave}</p>
+  <p>Coupon Discount:&nbsp; Apply Coupon</p>
+  <p>Delivery Charge:&emsp;&emsp;&emsp; FREE</p>
+  <p className={styles["total-cost"]}>TOTAL COST:&emsp;&nbsp;&nbsp;₹{total}</p>
 </div>
-<Link to={'/payment'}>
 
-<button style={{marginTop:'13px',color:'white',border:"1px solid purple",backgroundColor:"#C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Checkout Securely</button>        
-</Link>
-  </div>
-       
+<Link to={'/payment'}><button style={{marginTop:'13px',color:'white',border:"1px solid purple",backgroundColor:"#C05CED", width:"330px",borderRadius:'5px', padding:'5px'}}>Checkout Securely</button></Link>         </div>
+
         </div>
         
       ) : (
+
         <p style={{fontSize:'100px'}}>Your cart is empty :(</p>
+
       )}
       <Link to={'/product'}>
 <button style={{marginTop:'13px',border:"1px solid #C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Add More Product</button>       
@@ -96,5 +102,6 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
 
 

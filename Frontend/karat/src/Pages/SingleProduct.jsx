@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams,Link } from "react-router-dom";
 
+
 const SingleProduct = () => {
+
   const { _id } = useParams();
   const products = useSelector((store) => store.productReducer.products);
   const [product, setProduct] = useState({});
@@ -20,11 +22,11 @@ const SingleProduct = () => {
       cartItems = JSON.parse(localStorage.getItem('cartItems'));
     }
     const selectedProduct = {Weight:product.Weight, _id: product._id, Img: product.Img, Price: product.Price, Title: product.Title, DiscountPrice: product.DiscountPrice };
-    
     cartItems.push(selectedProduct);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))   
-  };
 
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))   
+
+  };
   return (
     <div style={{paddingTop:'100px'}}>
       {product && product.Img && (
