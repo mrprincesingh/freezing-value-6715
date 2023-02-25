@@ -123,7 +123,7 @@ const Login = () => {
               <Stack pt={6}>
                 <Text align={"center"}>
                   New to 24-KARAT ?{" "}
-                  <Link color={"blue.400"} to="/register">
+                  <Link color={"blue.400"} href="/signup">
                     Register
                   </Link>
                 </Text>

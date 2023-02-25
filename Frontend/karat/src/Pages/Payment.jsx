@@ -10,8 +10,6 @@ import {
   Select,
   Grid,
   Flex,
-} from "@chakra-ui/react";
-import {
   Table,
   Thead,
   Tbody,
@@ -38,18 +36,17 @@ const Payment = () => {
   const dispatch = useDispatch();
   const handlePayment = () => {
     let userData = {
-      firstName,
-      lastName,
-      city,
-      state,
-      phone,
-      street,
-      pincode,
+      first_name: firstName,
+      last_name: lastName,
+      city: city,
+      address: street + " " + city + " " + state,
+      mobile: phone,
+      pincode: +pincode,
       country,
     };
     dispatch(handleUserPayment(userData));
-    //  console.log(userData)
-    console.log("working");
+    //console.log(userData)
+    //console.log("working");
   };
   return (
     <>
@@ -61,10 +58,9 @@ const Payment = () => {
           lg: "row",
         }}
         alignItems="center"
-        gap={"50px"}
+        gap={"20px"}
         margin="auto"
         paddingTop={"50px"}
-        
       >
         <Stack
           flexDirection={{
@@ -86,18 +82,18 @@ const Payment = () => {
               spacing={4}
               width={{ base: "300px", md: "400px", lg: "450px" }}
             >
-              <FormControl id="firstName"> 
-              {/* <FormLabel>First Name</FormLabel> */}
-              <Input
-                width={"100%"}
-                type="text"
-                borderRadius={"none"}
-                border={"1px solid gray"}
-                focusBorderColor="gray.400"
-                value={firstName}
-                onChange={(e) => setFirsName(e.target.value)}
-                placeholder="First name"
-              />
+              <FormControl id="firstName">
+                {/* <FormLabel>First Name</FormLabel> */}
+                <Input
+                  width={"100%"}
+                  type="text"
+                  borderRadius={"none"}
+                  border={"1px solid gray"}
+                  focusBorderColor="gray.400"
+                  value={firstName}
+                  onChange={(e) => setFirsName(e.target.value)}
+                  placeholder="First name"
+                />
               </FormControl>
 
               <FormControl id="lastName">
@@ -167,8 +163,8 @@ const Payment = () => {
               <FormControl id="pincode" isRequired>
                 {/* <FormLabel>City</FormLabel> */}
                 <Input
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  value={pincode}
+                  onChange={(e) => setPincode(e.target.value)}
                   type="text"
                   borderRadius={"none"}
                   border={"1px solid gray"}

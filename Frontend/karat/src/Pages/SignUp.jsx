@@ -147,7 +147,7 @@ const dispatch = useDispatch()
               <Stack pt={6}>
                 <Text align={"center"}>
                   Already have an Account?{" "}
-                  <Link color={"blue.400"} to="/login">
+                  <Link color={"blue.400"} href={"/login"} >
                     Login
                   </Link>
                 </Text>

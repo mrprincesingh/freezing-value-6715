@@ -19,7 +19,7 @@ const MainRoute = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute> } />
         <Route path="/product" element={<Products />} />
         <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
