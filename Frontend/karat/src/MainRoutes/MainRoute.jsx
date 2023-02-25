@@ -13,17 +13,16 @@ import PrivateRoute from "./PrivateRoute";
 const MainRoute = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute> } />
-        <Route path="/product" element={<Products />} />
-        <Route path="/product/:id" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/payment" element={<Payment/>} />
+          <Route path="/product" element={<Products/>} />
+          <Route path="/product/:_id" element={<SingleProduct/>} />
+          <Route path="/cart" element={<Cart/>} />
+        </Routes>
     </div>
   );
 };

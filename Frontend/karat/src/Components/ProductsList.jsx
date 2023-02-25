@@ -27,7 +27,7 @@ const dispatch = useDispatch();
     <div className={styles["productdiv"]}>
       {products.length > 0 &&
         products.map((el) => {
-          return <ProductCard key={el.id} product={el} />;
+          return <ProductCard key={el._id} product={el} />;
         })}
     </div>
   );
