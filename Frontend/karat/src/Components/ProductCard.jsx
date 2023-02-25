@@ -4,9 +4,12 @@ import { FaVideo  } from 'react-icons/fa';
 
 export const ProductCard = ({product}) => {
   return (
-    <Link to={`/product/${product.id}`}>
+    <Link to={`/product/${product._id}`}>
+      
     <div style={{textAlign:'left'}}>
-        <img style={{border:"1px solid gray", boxShadow: "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;", borderRadius:'10px'}} width="90%" src={product.Img[0]} alt="image" />
+        <img style={{border:"1px solid gray", 
+        boxShadow: "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;", borderRadius:'10px'}} 
+        width="90%" src={product.Img[0]} alt="image" />
         <div style={{ display:'flex', gap:"30px"}}>
         <h2 style={{ color:"#4F3267",fontSize:'24px', fontWeight:'bolder'}}>₹{product.DiscountPrice}</h2>
         <p style={{ textDecoration: "line-through",  marginTop:'10px'}}>₹{product.Price}</p>

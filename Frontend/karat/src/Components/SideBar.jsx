@@ -21,7 +21,7 @@ import styles from "../Styles/Checkbox.module.css";
             backgroundColor:'#F6F3F9',
             height:'70px',
             textAlign:'center',
-            borderRadius:'20px',
+            borderRadius:'20px 20px 0px 0px',
             padding:"20px"
         }
         const check ={
@@ -90,9 +90,8 @@ import styles from "../Styles/Checkbox.module.css";
       };
    return (
      <div style={{
-        border:"1px solid gray",
-        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        borderRadius:'20px',
+        marginTop:"115px",
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
         height: "100%",
         width:'auto',
         position: "fixed",
