@@ -20,10 +20,10 @@ import {
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import karatlogo1 from "../Assests/karatlogo1.png";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PersonIcon from "@mui/icons-material/Person";
-import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+// import LocationOnIcon from "@mui/icons-material/LocationOn";
+// import PersonIcon from "@mui/icons-material/Person";
+// import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -35,7 +35,11 @@ import {
   faStore,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import {AiFillHome} from "react-icons/ai"
+import {BsPersonCircle} from "react-icons/bs"
+import {ImLocation} from "react-icons/im"
+import {AiFillHeart} from "react-icons/ai"
+import {AiOutlineShoppingCart} from "react-icons/ai"
+
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
@@ -70,7 +74,8 @@ const Navbar = () => {
             <li style={{ fontSize: "14px" }}>
               <NavLink to="/">
                 <a href="/" className="active">
-                  < AiFillHome />
+                <FontAwesomeIcon icon={faHomeAlt} />
+                {/* < AiFillHome/> */}
                   &nbsp; FREE TRY AT HOME
                 </a>
               </NavLink>
@@ -79,6 +84,7 @@ const Navbar = () => {
               <NavLink to="/">
                 <a href="/">
                   <FontAwesomeIcon icon={faStore} />
+                  {/* <FaStore/> */}
                   &nbsp; FIND STORE
                 </a>
               </NavLink>
@@ -87,6 +93,7 @@ const Navbar = () => {
               <NavLink to="/">
                 <a href="/">
                   <FontAwesomeIcon icon={faCalendarCheck} />
+                  {/* <SlCalender/> */}
                   &nbsp; PLAN OF PURCHASE
                 </a>
               </NavLink>
@@ -95,6 +102,7 @@ const Navbar = () => {
               <NavLink to="/">
                 <a href="/">
                   <FontAwesomeIcon icon={faCoins} />
+                  {/* <FaCoins/> */}
                   &nbsp; BUY DIGITAL GOLD
                 </a>
               </NavLink>
@@ -131,24 +139,24 @@ const Navbar = () => {
         <div className="social-media" style={{ paddingTop: "10px" }}>
           <ul className="social-media-desktop">
             <li>
-              <Link style={{ fontSize: "14px" }} to="/">
-                <LocationOnIcon />
+              <Link style={{ fontSize: "30px" }} to="/">
+                <ImLocation />
               </Link>
             </li>
             <li>
               <Link to="/signup">
-                <PersonIcon />
+                <BsPersonCircle />
                    
               </Link>
             </li>
             <li>
               <Link to="/wishlist">
-                <FavoriteIcon />
+                <AiFillHeart/>
               </Link>
             </li>
             <li>
               <Link to="/cart">
-                <ShoppingBasketOutlinedIcon />
+                <AiOutlineShoppingCart />
               </Link>
             </li>
           </ul>
@@ -165,34 +173,34 @@ const Navbar = () => {
       <div>
         <ul id="navbar1">
           <li>
-            <Link to="/">NEW ARRIVALS</Link>
+            <Link to="/product">NEW ARRIVALS</Link>
           </li>
           <li>
-            <Link to="/">RINGS</Link>
+            <Link to="/product">RINGS</Link>
           </li>
           <li>
-            <Link to="/">EARRINGS</Link>
+            <Link to="/product">EARRINGS</Link>
           </li>
           <li>
-            <Link to="/">BRACELETS & BANGLES</Link>
+            <Link to="/product">BRACELETS & BANGLES</Link>
           </li>
           <li>
-            <Link to="/">SOLITARIES</Link>
+            <Link to="/product">SOLITARIES</Link>
           </li>
           <li>
-            <Link to="/">MANGALSUTRA</Link>
+            <Link to="/product">MANGALSUTRA</Link>
           </li>
           <li>
             <Link to="/">READY TO SHIP</Link>
           </li>
           <li>
-            <Link to="/">KIDS</Link>
+            <Link to="/product">KIDS</Link>
           </li>
           <li>
-            <Link to="/">OTHERS JEWELLERY</Link>
+            <Link to="/product">OTHERS JEWELLERY</Link>
           </li>
           <li>
-            <Link to="/">GIFTING</Link>
+            <Link to="/product">GIFTING</Link>
           </li>
         </ul>
       </div>

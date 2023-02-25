@@ -11,12 +11,9 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      {/* <MainRoute />
-      <Footer /> */}
-      {/* < SliderCard/>
-      <SliderShow1 />
-      < CarouselCard/> */}
-      <Home/>
+      {/* <MainRoute /> */}
+      {/* <Footer />   */}
+      <Home />
     </div>
   );
 }
