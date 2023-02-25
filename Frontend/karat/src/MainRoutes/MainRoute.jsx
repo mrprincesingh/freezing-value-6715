@@ -13,7 +13,6 @@ import PrivateRoute from "./PrivateRoute";
 const MainRoute = () => {
   return (
     <div>
-
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/checkout" element={<Checkout/>} />
@@ -24,7 +23,6 @@ const MainRoute = () => {
           <Route path="/product/:_id" element={<SingleProduct/>} />
           <Route path="/cart" element={<Cart/>} />
         </Routes>
-
     </div>
   );
 };

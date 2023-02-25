@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
@@ -10,6 +11,7 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
 } from "./actionTypes";
+
 //FOR REGISTER
 export const userRegisterRequest = () => {
   return { type: REGISTER_REQUEST };
@@ -65,6 +67,7 @@ export const handleUserLogin = (userData) => async (dispatch) => {
       .then((res) => {
       if(res.data.token){      
         localStorage.setItem("token",res.data.token)
+        window.location.href = '/'
         userLoginSuccess(res.data.token)
       }
       console.log(res.data.token)})
