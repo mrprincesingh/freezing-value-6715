@@ -1,4 +1,5 @@
-✨Tripoto-Clone✨
+✨Caratlane-Clone✨
+Caratlane is a tanishq partner
 ---
 This is a collaborative Project from Masai School in the Construct Week. We are 4 members of the team:
 
