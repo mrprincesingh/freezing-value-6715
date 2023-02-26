@@ -45,7 +45,7 @@ import {CgProfile} from "react-icons/cg"
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
-  const [ signout, setSignOut] = useState(false)
+  const [ signout, setSignOut] = useState(true)
 
  const handleClick = () =>{
   localStorage.removeItem('token');
@@ -58,7 +58,7 @@ const Navbar = () => {
 
   return (
     <div className="whole">
-      <div className="top">
+      <div className="top" style={{textAlign:"center"}}>
         <p>
           introducing Crystal & Gold pro! - purchase your plan{" "}
           <span style={{ color: "orange" }}>here</span>
