@@ -23,6 +23,8 @@ import {
 import { useToast } from '@chakra-ui/react'
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 import { handleUserPayment } from "../redux/Auth/action";
 
 const Payment = () => {
@@ -77,6 +79,7 @@ const Payment = () => {
 
   return (
     <>
+    <Navbar/>
       <Flex
         flexDirection={{
           base: "column",
@@ -87,7 +90,7 @@ const Payment = () => {
         alignItems="center"
         gap={"20px"}
         margin="auto"
-        paddingTop={"50px"}
+        paddingTop={"100px"}
       >
         <Stack
           flexDirection={{
@@ -318,6 +321,7 @@ const Payment = () => {
           </TableContainer>
         </Grid>
       </Flex>
+      <Footer/>
     </>
   );
 };

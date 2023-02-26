@@ -26,7 +26,7 @@ const dispatch = useDispatch();
   return (
     <div className={styles["productdiv"]}>
       {products.length > 0 &&
-        products.map((el) => {
+        products.reverse().map((el) => {
           return <ProductCard key={el._id} product={el} />;
         })}
     </div>

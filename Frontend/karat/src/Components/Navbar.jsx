@@ -175,7 +175,7 @@ const Navbar = () => {
   <Icon boxSize="30px" as={CgProfile}/>
   </MenuButton>
   <MenuList align={"center"}>
-    <Link to="/admin">
+    <Link to="/admin/login">
     <MenuItem fontSize={"20px"}>Admin</MenuItem>
     </Link>
     <Link to="/signup">

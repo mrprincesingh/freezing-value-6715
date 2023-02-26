@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 import styles from "../Styles/Cart.module.css";
 
 const CartPage = () => {
@@ -24,7 +26,8 @@ const CartPage = () => {
   
 
   return (
-    
+    <>
+    <Navbar/>
     <div style={{backgroundColor:'#F9F9FA',textAlign:'left',paddingTop:"140px"}}>
       <p style={{marginLeft:'35px'}}>Total({cartItems.length} Items):₹ {total}</p>
       {cartItems.length > 0 ? (
@@ -92,11 +95,10 @@ const CartPage = () => {
         <p style={{fontSize:'100px'}}>Your cart is empty :(</p>
 
       )}
-      <Link to={'/product'}>
-<button style={{marginTop:'13px',border:"1px solid #C05CED", width:"300px",borderRadius:'5px', padding:'5px'}}>Add More Product</button>       
-</Link>
-    </div>
     
+    </div>
+    <Footer/>.
+    </>
   );
 };
 

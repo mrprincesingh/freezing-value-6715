@@ -130,7 +130,7 @@ const AdminLogin = () => {
     Login
   </Button>
               </Stack>
-              <Stack pt={6}>
+              <Stack align="center" pt={6}>
                 <Heading>Admin</Heading>
               </Stack>
             </Stack>

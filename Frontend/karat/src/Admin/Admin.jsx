@@ -139,8 +139,9 @@ const Admin = () => {
   );
 
   return (
-    <Box>
+    <Box >
       <Box
+      
         as="section"
         bg="#E9D8FD"
         _dark={{

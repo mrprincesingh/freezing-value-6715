@@ -1,20 +1,26 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams,Link } from "react-router-dom";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 
 
 const SingleProduct = () => {
-
-  const { _id } = useParams();
+  const { id } = useParams();
+  
   const products = useSelector((store) => store.productReducer.products);
-  const [product, setProduct] = useState({});
-
-  useEffect(() => {
-    let productData = products.find((el) => el._id === _id);
-    productData && setProduct(productData);
-  }, [products, _id]);
-
-
+  const [product, setProduct] = useState([]);
+ 
+  useEffect(()=>{
+    getUser()
+      },[])
+  const getUser = async()=>{
+    
+    const res = await axios.get(`https://real-puce-slug-boot.cyclic.app/products/${id}`)
+    console.log(res.data[0])
+    setProduct(res.data[0])
+  }
   const handleAddToCart = () => {
 
     let cartItems = [];
@@ -25,9 +31,13 @@ const SingleProduct = () => {
     cartItems.push(selectedProduct);
 
     localStorage.setItem('cartItems', JSON.stringify(cartItems))   
-
+  
   };
+
+
   return (
+    <>
+    <Navbar/>
     <div style={{paddingTop:'100px'}}>
       {product && product.Img && (
         <div style={{display:'flex'}}>
@@ -96,7 +106,8 @@ const SingleProduct = () => {
       )}
       
     </div>
-    
+    <Footer/> 
+    </>
   );
 };
 

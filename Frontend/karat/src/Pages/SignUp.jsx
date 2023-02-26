@@ -19,6 +19,8 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch } from "react-redux";
 import { handleUserRegister } from "../redux/Auth/action";
 import { useToast } from '@chakra-ui/react'
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setFirsName] = useState("");
@@ -53,6 +55,7 @@ const dispatch = useDispatch()
   };
   return (
     <>
+    <Navbar/>
     {showToast  && toast({
       title: 'Account created.',
       description: "please try to login.",
@@ -61,6 +64,7 @@ const dispatch = useDispatch()
       isClosable: true,
     })}
       <Flex
+      pt="150px"
         minH={"100vh"}
         align={"center"}
         justify={"center"}
@@ -177,6 +181,7 @@ const dispatch = useDispatch()
           </Box>
         </Stack>
       </Flex>
+      <Footer/>
     </>
   );
 };

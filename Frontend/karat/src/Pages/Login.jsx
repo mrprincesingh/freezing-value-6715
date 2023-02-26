@@ -22,6 +22,8 @@ import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { handleUserLogin } from "../redux/Auth/action";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -42,6 +44,7 @@ const Login = () => {
   //console.log("loginpge",token)
   return (
     <>
+    <Navbar/>
      {token  && toast({
       title: 'Logged in Successfully',
       description: "Enjoy",
@@ -50,6 +53,7 @@ const Login = () => {
       isClosable: true,
     })}
       <Flex
+        pt="150px"
         minH={"100vh"}
         align={"center"}
         justify={"center"}
@@ -144,6 +148,7 @@ const Login = () => {
           </Box>
         </Stack>
       </Flex>
+      <Footer/>
     </>
   );
 };
