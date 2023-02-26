@@ -53,12 +53,12 @@ const Navbar = () => {
   setSignOut(!signout)
  }
 
- const  user = localStorage.getItem("user") || "user";
+ const  user = localStorage.getItem("user");
   
 
   return (
     <div className="whole">
-      <div className="top">
+      <div className="top" style={{textAlign:"center"}}>
         <p>
           introducing Crystal & Gold pro! - purchase your plan{" "}
           <span style={{ color: "orange" }}>here</span>
@@ -156,21 +156,6 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              {/* <BsPersonCircle onMouseEnter={toggleDropDown} />
-              <div style={{ widt: "100px", height: "auto" }}>
-                {isOpen && (
-                  <div>
-                    <select style={{ display: "block", fontSize: "18px" , background:"white", width:"100px"}}>
-                     
-                      <option value=""> <img src="https://img.icons8.com/ios-filled/256/user.png" alt="" /></option>
-                      <option style={{ background:"white"}}>Admin Side</option>
-                      <option>Sing up</option>
-                      <option>Login</option>
-                      <option>logout</option>
-                    </select>
-                  </div>
-                )}
-              </div> */}
               <Menu>
   <MenuButton as={Button} rightIcon={<BsChevronDown />} w="100%">
   <Icon boxSize="30px" as={CgProfile}/>
