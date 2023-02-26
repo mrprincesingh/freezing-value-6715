@@ -17,6 +17,7 @@ import {
   MenuOptionGroup,
   MenuDivider,
   Button,
+  Icon
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import karatlogo1 from "../Assests/karatlogo1.png";
@@ -35,14 +36,24 @@ import {
   faStore,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import {BsPersonCircle} from "react-icons/bs"
-import {ImLocation} from "react-icons/im"
-import {AiFillHeart} from "react-icons/ai"
-import {AiOutlineShoppingCart} from "react-icons/ai"
-
+import { BsPersonCircle } from "react-icons/bs";
+import { ImLocation } from "react-icons/im";
+import { AiFillHeart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import {BsChevronDown} from "react-icons/bs"
+import {CgProfile} from "react-icons/cg"
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
+  const [ signout, setSignOut] = useState(true)
+
+ const handleClick = () =>{
+  console.log("sign out")
+  window.localStorage.setItem("token",null)
+  setSignOut(!signout)
+ }
+
+  
 
   return (
     <div className="whole">
@@ -74,8 +85,8 @@ const Navbar = () => {
             <li style={{ fontSize: "14px" }}>
               <NavLink to="/">
                 <a href="/" className="active">
-                <FontAwesomeIcon icon={faHomeAlt} />
-                {/* < AiFillHome/> */}
+                  <FontAwesomeIcon icon={faHomeAlt} />
+                  {/* < AiFillHome/> */}
                   &nbsp; FREE TRY AT HOME
                 </a>
               </NavLink>
@@ -144,14 +155,45 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/signup">
-                <BsPersonCircle />
-                   
-              </Link>
+              {/* <BsPersonCircle onMouseEnter={toggleDropDown} />
+              <div style={{ widt: "100px", height: "auto" }}>
+                {isOpen && (
+                  <div>
+                    <select style={{ display: "block", fontSize: "18px" , background:"white", width:"100px"}}>
+                     
+                      <option value=""> <img src="https://img.icons8.com/ios-filled/256/user.png" alt="" /></option>
+                      <option style={{ background:"white"}}>Admin Side</option>
+                      <option>Sing up</option>
+                      <option>Login</option>
+                      <option>logout</option>
+                    </select>
+                  </div>
+                )}
+              </div> */}
+              <Menu>
+  <MenuButton as={Button} rightIcon={<BsChevronDown />} w="100%">
+  <Icon boxSize="30px" as={CgProfile}/>
+  </MenuButton>
+  <MenuList align={"center"}>
+    <Link to="/admin">
+    <MenuItem fontSize={"20px"}>Admin</MenuItem>
+    </Link>
+    <Link to="/signup">
+    <MenuItem fontSize={"20px"}>Sign-Up</MenuItem>
+    </Link>
+    
+    {/* <Link to="/login"></Link> */}
+    
+    
+    { signout ?  <Link to="/login">
+    <MenuItem fontSize={"20px"}>Login</MenuItem>
+    </Link> : <MenuItem fontSize={"20px"} onClick={handleClick}>LogOut</MenuItem>}
+  </MenuList>
+</Menu>
             </li>
             <li>
               <Link to="/wishlist">
-                <AiFillHeart/>
+                <AiFillHeart />
               </Link>
             </li>
             <li>
