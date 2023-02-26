@@ -74,7 +74,7 @@ export const handleUserLogin = (userData) => async (dispatch) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("user", res.data.email);
           console.log("string", res.data);
-           window.location.href = "/";
+           window.location.href = "/payment";
           return dispatch(userLoginSuccess(res.data.token));
         } else {
           alert("wrong credential");
