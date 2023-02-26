@@ -14,6 +14,7 @@ import SliderCard from '../Components/sliderCard'
 import sliderCard from '../Components/sliderCard'
 import SliderShow1 from '../Components/sliderShow1'
 import './Home.css'
+import {Link} from "react-router-dom"
 
 
 
@@ -32,12 +33,25 @@ const Home = () => {
         <img className="item3" src='https://cdn.caratlane.com/media/static/images/V4/2023/CL/01-JAN/AppBanner/Harry/1X.jpg' alt='img3'></img>
       </div>
       <div className='category'>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_5.jpg' alt='image1' /></div>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_1.jpg' alt='image2' /></div>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_2.jpg' alt='image3' /></div>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_3.jpg' alt='image4' /></div>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_7.jpg' alt='image5' /></div>
-        <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_6.jpg' alt='image6' /></div>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_5.jpg' alt='image1' /></div>
+         </Link>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_1.jpg' alt='image2' /></div>
+         </Link>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_2.jpg' alt='image3' /></div>
+         </Link>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_3.jpg' alt='image4' /></div>
+         </Link>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_7.jpg' alt='image5' /></div>
+         </Link>
+         <Link to="/product">
+         <div><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/6tile/01/Desktop_6.jpg' alt='image6' /></div>
+         </Link>
+         
       </div>
       <div className='collection'>
         <div style={{ marginTop: '60px' }}><img src='https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Borla.jpg' alt='image1' /></div>
