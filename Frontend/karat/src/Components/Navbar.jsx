@@ -45,14 +45,15 @@ import {CgProfile} from "react-icons/cg"
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
-  const [ signout, setSignOut] = useState(true)
+  const [ signout, setSignOut] = useState(false)
 
  const handleClick = () =>{
-  console.log("sign out")
-  window.localStorage.setItem("token",null)
+  localStorage.removeItem('token');
+  window.localStorage.setItem("user","User")
   setSignOut(!signout)
  }
 
+ const  user = localStorage.getItem("user") || "user";
   
 
   return (
@@ -178,8 +179,8 @@ const Navbar = () => {
     <Link to="/admin/login">
     <MenuItem fontSize={"20px"}>Admin</MenuItem>
     </Link>
-    <Link to="/signup">
-    <MenuItem fontSize={"20px"}>Sign-Up</MenuItem>
+    <Link>
+    <MenuItem fontSize={"20px"}> {user} </MenuItem>
     </Link>
     
     {/* <Link to="/login"></Link> */}

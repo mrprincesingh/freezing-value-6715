@@ -50,11 +50,11 @@ export const handleUserRegister = (userData) => async (dispatch) => {
     axios
       .post("https://real-puce-slug-boot.cyclic.app/users/register", userData)
       .then((res) => {
-        if(res.status == 200){
-          window.location.href = '/login'
+        if (res.status == 200) {
+          window.location.href = "/login";
         }
-        console.log(res)}
-      )
+        console.log(res);
+      })
       .catch((err) => console.log(err));
     dispatch(userRegisterSuccess());
   } catch (error) {
@@ -70,23 +70,26 @@ export const handleUserLogin = (userData) => async (dispatch) => {
     axios
       .post("https://real-puce-slug-boot.cyclic.app/users/login", userData)
       .then((res) => {
-      if(res.data.token){      
-        localStorage.setItem("token",res.data.token)
-         window.location.href = '/'
-      return dispatch(userLoginSuccess(res.data.token))
-      }else{
-        alert("wrong credential")
-      }
-      console.log("string",res.data)})
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.email);
+          console.log("string", res.data);
+           window.location.href = "/";
+          return dispatch(userLoginSuccess(res.data.token));
+        } else {
+          alert("wrong credential");
+        }
+        
+      })
       .catch((err) => {
-        alert("wrong credential")
-        console.log(err)});
+        alert("wrong credential");
+        console.log(err);
+      });
     dispatch(userLoginSuccess());
   } catch (error) {
     console.log(error);
-    
+
     dispatch(userLoginFailure());
-    
   }
 };
 //HANDLING USER DILIVERY ADDRESS
@@ -95,7 +98,10 @@ export const handleUserPayment = (userDiliveryAddress) => async (dispatch) => {
   dispatch(userPaymentRequest());
   try {
     axios
-      .post("https://real-puce-slug-boot.cyclic.app/order/add", userDiliveryAddress)
+      .post(
+        "https://real-puce-slug-boot.cyclic.app/order/add",
+        userDiliveryAddress
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     dispatch(userPaymentSuccess());
@@ -105,4 +111,4 @@ export const handleUserPayment = (userDiliveryAddress) => async (dispatch) => {
   }
 };
 
-export default showT
+export default showT;
