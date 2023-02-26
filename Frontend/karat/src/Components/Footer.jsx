@@ -96,7 +96,7 @@ const Footer = () => {
             <img style={{ width: "50%" }} src={social}></img>
           </div>
           <div style={{marginLeft:"-400px"}}>
-            <button>FIND A STORE</button>
+        
           </div>
           <div>
             <p id="text" 
