@@ -73,16 +73,20 @@ export const handleUserLogin = (userData) => async (dispatch) => {
       if(res.data.token){      
         localStorage.setItem("token",res.data.token)
          window.location.href = '/'
-       dispatch(userLoginSuccess(res.data.token))
+      return dispatch(userLoginSuccess(res.data.token))
       }else{
         alert("wrong credential")
       }
       console.log("string",res.data)})
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("wrong credential")
+        console.log(err)});
     dispatch(userLoginSuccess());
   } catch (error) {
     console.log(error);
+    
     dispatch(userLoginFailure());
+    
   }
 };
 //HANDLING USER DILIVERY ADDRESS

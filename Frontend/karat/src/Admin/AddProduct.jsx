@@ -128,9 +128,11 @@ const AddProduct = () => {
     >
       <Flex px="4" py="5" align="center">
         {/* <Logo /> */}
+        <Link to="/">
         <Text fontSize="2xl" ml="2" color="white" fontWeight="semibold">
-          Dashboard
+          UserPage
         </Text>
+        </Link>
       </Flex>
  
         <Link to="/admin"><NavItem icon={MdHome}>Home</NavItem></Link>
