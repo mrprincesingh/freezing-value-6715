@@ -15,18 +15,40 @@ import {
   Link,
   Center,
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { handleUserLogin } from "../redux/Auth/action";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleLogin = () => {};
+  // const [showToast, setShowToast] = useState(false);
+  const dispatch = useDispatch();
+  const toast = useToast()
+  const token = useSelector((store) => store.authReducer.token);
+  const handleLogin = () => {
+    let userObj = {
+      email,
+      password,
+    };
+    dispatch(handleUserLogin(userObj));
+    setEmail('')
+    setPassword('')
+  };
+  //console.log("loginpge",token)
   return (
     <>
+     {token  && toast({
+      title: 'Logged in Successfully',
+      description: "Enjoy",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })}
       <Flex
         minH={"100vh"}
         align={"center"}
@@ -38,13 +60,10 @@ const Login = () => {
             <Heading fontSize={"4xl"} textAlign={"center"} color="#eac926">
               Login
             </Heading>
-            {/* <Text fontSize={"lg"} color={"gray.600"}>
-            Login  to enjoy all of our cool features ✌️
-            </Text> */}
           </Stack>
           <Box rounded={"lg"} p={8}>
             <Stack spacing={4}>
-              <HStack>
+              <HStack gridColumn={{ sm: 1 }}>
                 {/* Facebook */}
                 <Button
                   w={"full"}
@@ -116,7 +135,7 @@ const Login = () => {
               <Stack pt={6}>
                 <Text align={"center"}>
                   New to 24-KARAT ?{" "}
-                  <Link color={"blue.400"} to="/register">
+                  <Link color={"blue.400"} href="/signup">
                     Register
                   </Link>
                 </Text>

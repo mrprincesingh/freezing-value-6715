@@ -1,9 +1,11 @@
 import axios from "axios";
 import {
-  DELETE_PRODUCT_SUCCESS,
   GET_PRODUCTS_FAILURE,
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  CLEAR_CART
 } from "./actionType";
 
 const getProductsRequestAction = () => {
@@ -18,9 +20,20 @@ const getProductsFailureAction = () => {
   return { type: GET_PRODUCTS_FAILURE };
 };
 
-const deleteProductSuccess = () => {
-  return { type: DELETE_PRODUCT_SUCCESS };
+export const addToCart = (item) => {
+  return {type: ADD_TO_CART, item}
+
 };
+
+const removeFromCart = (productId) => {
+  return {type: REMOVE_FROM_CART, productId}
+}
+
+export const clearCart = () => {
+  return {type: CLEAR_CART}
+
+}
+
 
 export const getProducts =
   (param = {}) =>
@@ -28,7 +41,7 @@ export const getProducts =
     dispatch(getProductsRequestAction());
 
     axios
-      .get("http://localhost:8080/Products", param)
+      .get("https://real-puce-slug-boot.cyclic.app/products", param)
       .then((res) => {
         dispatch(getProductsSuccessAction(res.data));
       })
@@ -37,10 +50,27 @@ export const getProducts =
       });
   };
 
-export const deleteBook = (id, ProductData) => (dispatch) => {
-  return axios.delete(`http://localhost:8080/Products/${id}`, ProductData).then(() => {
-    dispatch(deleteProductSuccess());
-  });
-};
 
-// ?category=Novel&category=Motivational
+  export const fetchCartData = (userID) => {
+    return async (dispatch) => {
+      try {
+        const { data } = await axios.get(`https://real-puce-slug-boot.cyclic.app/products/cart?userID=${userID}`);
+        dispatch(addToCart(data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
+  
+  export const deleteCartItem = (productId) => {
+    return async (dispatch) => {
+      try {
+        await axios.delete(`https://real-puce-slug-boot.cyclic.app/products/cart/delete/${productId}`);
+        dispatch(removeFromCart(productId));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
+  
+

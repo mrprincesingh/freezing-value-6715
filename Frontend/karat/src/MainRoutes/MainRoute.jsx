@@ -8,6 +8,13 @@ import SignUp from "../Pages/SignUp"
 import Payment from "../Pages/Payment"
 import Products from "../Pages/Products"
 import SingleProduct from "../Pages/SingleProduct"
+import Admin from '../Admin/Admin'
+import AdminEdit from '../Admin/AdminEdit'
+import AddProduct from '../Admin/AddProduct'
+import Order from '../Admin/Order'
+import User from '../Admin/User'
+import AdminLogin from '../Admin/AdminLogin'
+import PrivateRoute from './PrivateRoute'
 
 
 const MainRoute = () => {
@@ -15,11 +22,17 @@ const MainRoute = () => {
     <div>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/adminedit/:id" element={<AdminEdit/>}/>
+          <Route path="/addproduct" element={<AddProduct/>} />
+          <Route path="/orders" element={<Order />}/>
+          <Route path="/admin/users" element={<User/>}/>
+          <Route path="/admin/login" element={<AdminLogin/>}/>
           <Route path="/cart" element={<Cart/>} />
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
-          <Route path="/payment" element={<Payment/>} />
+          <Route path="/payment" element={ <PrivateRoute><Payment/></PrivateRoute>} />
           <Route path="/product" element={<Products/>} />
           <Route path="/product/:id" element={<SingleProduct/>} />
 

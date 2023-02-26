@@ -6,6 +6,7 @@
 .whole {
     position: fixed;
     z-index: 5;
+    bottom: auto;
     width: 100%;
 }
 
