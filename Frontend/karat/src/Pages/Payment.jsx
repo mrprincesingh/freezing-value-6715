@@ -20,6 +20,7 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleUserPayment } from "../redux/Auth/action";
@@ -34,6 +35,7 @@ const Payment = () => {
   const [pincode, setPincode] = useState("");
   const [country, setCountry] = useState("India");
   const dispatch = useDispatch();
+  const toast = useToast()
   const handlePayment = () => {
     let userData = {
       first_name: firstName,
@@ -45,6 +47,15 @@ const Payment = () => {
       country,
     };
     dispatch(handleUserPayment(userData));
+    toast({
+      position: "top",
+      title: "Order placed",
+      description: "SuccessFul.",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
+    window.location.href = "/"
     //console.log(userData)
     //console.log("working");
   };

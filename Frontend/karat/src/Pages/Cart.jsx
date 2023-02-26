@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Cart.module.css";
-import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);

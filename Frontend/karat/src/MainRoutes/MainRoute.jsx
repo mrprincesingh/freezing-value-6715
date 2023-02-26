@@ -14,6 +14,7 @@ import AddProduct from '../Admin/AddProduct'
 import Order from '../Admin/Order'
 import User from '../Admin/User'
 import AdminLogin from '../Admin/AdminLogin'
+import PrivateRoute from './PrivateRoute'
 
 
 const MainRoute = () => {
@@ -31,7 +32,7 @@ const MainRoute = () => {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
-          <Route path="/payment" element={<Payment/>} />
+          <Route path="/payment" element={ <PrivateRoute><Payment/></PrivateRoute>} />
           <Route path="/product" element={<Products/>} />
           <Route path="/product/:id" element={<SingleProduct/>} />
 

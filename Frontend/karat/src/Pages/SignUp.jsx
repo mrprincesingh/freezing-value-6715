@@ -18,6 +18,7 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch } from "react-redux";
 import { handleUserRegister } from "../redux/Auth/action";
+import { useToast } from '@chakra-ui/react'
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setFirsName] = useState("");
@@ -25,6 +26,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
+  const [showToast,setShowToast] = useState(false)
+  const toast = useToast()
 const dispatch = useDispatch()
   const handleRegisterSubmit = async () => {
     let userObj = {
@@ -35,10 +38,28 @@ const dispatch = useDispatch()
       password,
     };
     dispatch(handleUserRegister(userObj))
-   
+    if(dispatch(handleUserRegister(userObj))){
+      setShowToast(true)
+    }else{
+      setShowToast(false)
+    }
+    
+    setFirsName('')
+    setLastName('')
+    setEmail('')
+    setMobile('')
+    setPassword('')
+    
   };
   return (
     <>
+    {showToast  && toast({
+      title: 'Account created.',
+      description: "please try to login.",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })}
       <Flex
         minH={"100vh"}
         align={"center"}
