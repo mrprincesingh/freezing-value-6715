@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
@@ -12,6 +11,7 @@ import {
   REGISTER_SUCCESS,
 } from "./actionTypes";
 
+let showT;
 //FOR REGISTER
 export const userRegisterRequest = () => {
   return { type: REGISTER_REQUEST };
@@ -49,7 +49,12 @@ export const handleUserRegister = (userData) => async (dispatch) => {
   try {
     axios
       .post("https://real-puce-slug-boot.cyclic.app/users/register", userData)
-      .then((res) => console.log(res))
+      .then((res) => {
+        if(res.status == 200){
+          window.location.href = '/login'
+        }
+        console.log(res)}
+      )
       .catch((err) => console.log(err));
     dispatch(userRegisterSuccess());
   } catch (error) {
@@ -67,10 +72,12 @@ export const handleUserLogin = (userData) => async (dispatch) => {
       .then((res) => {
       if(res.data.token){      
         localStorage.setItem("token",res.data.token)
-        window.location.href = '/'
-        userLoginSuccess(res.data.token)
+         window.location.href = '/'
+       dispatch(userLoginSuccess(res.data.token))
+      }else{
+        alert("wrong credential")
       }
-      console.log(res.data.token)})
+      console.log("string",res.data)})
       .catch((err) => console.log(err));
     dispatch(userLoginSuccess());
   } catch (error) {
@@ -93,3 +100,5 @@ export const handleUserPayment = (userDiliveryAddress) => async (dispatch) => {
     dispatch(userPaymentFailure());
   }
 };
+
+export default showT

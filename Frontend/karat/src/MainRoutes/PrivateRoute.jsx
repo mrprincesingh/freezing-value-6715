@@ -12,7 +12,7 @@ function PrivateRoute({ children }) {
   const authState = useSelector((store) => store);
   console.log("auth", authState.authReducer);
   authState.authReducer.token = localStorage.getItem("token");
-
+console.log('privateRoute',authState.authReducer.token)
   if (!authState.authReducer.token) {
     return (
       <>

@@ -15,9 +15,10 @@ import {
   Link,
   Center,
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { handleUserLogin } from "../redux/Auth/action";
@@ -25,7 +26,9 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [showToast, setShowToast] = useState(false);
   const dispatch = useDispatch();
+  const toast = useToast()
   const token = useSelector((store) => store.authReducer.token);
   const handleLogin = () => {
     let userObj = {
@@ -33,10 +36,19 @@ const Login = () => {
       password,
     };
     dispatch(handleUserLogin(userObj));
+    setEmail('')
+    setPassword('')
   };
-  // console.log(token)
+  //console.log("loginpge",token)
   return (
     <>
+     {token  && toast({
+      title: 'Logged in Successfully',
+      description: "Enjoy",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })}
       <Flex
         minH={"100vh"}
         align={"center"}
