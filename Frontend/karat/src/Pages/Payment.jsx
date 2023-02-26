@@ -157,7 +157,6 @@ const Payment = () => {
                 <Input
                   value={street}
                   type="text"
-                  maxLength={"10"}
                   borderRadius={"none"}
                   border={"1px solid gray"}
                   focusBorderColor="gray.400"
