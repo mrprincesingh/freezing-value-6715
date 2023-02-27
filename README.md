@@ -35,10 +35,14 @@ Chakra UI (UI Styling Library).
 
 
 ---
+Home Page
+
+![Screenshot 2023-02-27 112159](https://user-images.githubusercontent.com/108007506/221486611-cf7cb23e-912a-40c2-8f32-941c7bc0cf2b.png)
 
 
+![Screenshot 2023-02-27 112229](https://user-images.githubusercontent.com/108007506/221486639-261d3b12-f68d-4e37-99be-f33c3527f085.png)
 
-
+![Screenshot 2023-02-27 112258](https://user-images.githubusercontent.com/108007506/221486674-7555edbf-cf20-4f9d-88c2-1498ad87cf1b.png)
 
         
 ---
