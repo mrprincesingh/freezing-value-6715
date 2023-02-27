@@ -48,6 +48,17 @@ Footer
     
 ![Screenshot 2023-02-27 112324](https://user-images.githubusercontent.com/108007506/221487077-d81d78bf-a941-4ba8-a99c-9e07869cc816.png)
 
+Product page
+
+
+![Screenshot 2023-02-27 112638](https://user-images.githubusercontent.com/108007506/221487218-da09d8eb-6c15-44b2-8893-8b18133de22b.png)
+
+
+SingleProduct Page
+
+![Screenshot 2023-02-27 112705](https://user-images.githubusercontent.com/108007506/221487288-efba53f5-f736-417b-b3e6-0b120a16e8c4.png)
+
+
 
     
 ---
