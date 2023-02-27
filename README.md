@@ -44,7 +44,12 @@ Home Page
 
 ![Screenshot 2023-02-27 112258](https://user-images.githubusercontent.com/108007506/221486674-7555edbf-cf20-4f9d-88c2-1498ad87cf1b.png)
 
-        
+Footer
+    
+    
+    ![Screenshot 2023-02-27 112324](https://user-images.githubusercontent.com/108007506/221486954-f2a88516-1c06-4dc7-ac95-f3b36a9eaeb7.png)
+
+    
 ---
 Deployed Link : 
 
